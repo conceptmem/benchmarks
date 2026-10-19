@@ -1,0 +1,26 @@
+{
+  "dataset": "data/longmemeval/longmemeval_s_cleaned.json",
+  "storage": "internal",
+  "granularity": "session",
+  "roles": "all",
+  "concurrency": 4,
+  "commit": "d7cd3e3e5dca0456a67f427d1c6654ec34ea8a8c",
+  "environment": {
+    "node": "v24.21.0",
+    "platform": "win32",
+    "architecture": "x64",
+    "cpu": "AMD Ryzen 9 7900X 12-Core Processor",
+    "memoryBytes": 33459961856
+  },
+  "startedAt": "2026-10-19T18:46:09.151Z",
+  "selection": "470 of 500 questions (30 abstention left out)",
+  "search": {
+    "referenceTime": true,
+    "fuzzy": false
+  },
+  "datasetSha256": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+  "filters": {
+    "questions": [],
+    "types": []
+  }
+}

@@ -1,0 +1,26 @@
+# Published ConceptMem benchmark results. Only results, reports and the scripts or configs
+# that reproduce them belong here; the inputs they were computed from do not.
+
+# The LongMemEval release files: fetched by `node scripts/download-data.mjs` (and
+# longmemeval_s_cleaned.json alone is 265 MB, past GitHub's 100 MB file limit).
+longmemeval_s*.json
+longmemeval_m*.json
+longmemeval_oracle*.json
+**/data/
+
+# Caches the benchmark keeps between runs: embeddings, LLM extractions and QA answers.
+**/embeddings/
+**/extractions/
+**/qa/
+*.f32
+*.bin
+*.jsonl.gz
+*.gguf
+*.part
+
+# Secrets and local tooling.
+.env
+.env.*
+node_modules/
+.DS_Store
+Thumbs.db

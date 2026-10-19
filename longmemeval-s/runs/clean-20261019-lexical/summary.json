@@ -1,0 +1,203 @@
+{
+  "config": {
+    "dataset": "data/longmemeval/longmemeval_s_cleaned.json",
+    "storage": "internal",
+    "granularity": "session",
+    "roles": "all",
+    "concurrency": 4,
+    "commit": "d7cd3e3e5dca0456a67f427d1c6654ec34ea8a8c",
+    "environment": {
+      "node": "v24.21.0",
+      "platform": "win32",
+      "architecture": "x64",
+      "cpu": "AMD Ryzen 9 7900X 12-Core Processor",
+      "memoryBytes": 33459961856
+    },
+    "startedAt": "2026-10-19T18:46:09.151Z",
+    "selection": "470 of 500 questions (30 abstention left out)",
+    "search": {
+      "referenceTime": true,
+      "fuzzy": false
+    },
+    "datasetSha256": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+    "filters": {
+      "questions": [],
+      "types": []
+    }
+  },
+  "questions": 470,
+  "scored": 470,
+  "errors": [],
+  "retrievalQuestions": 470,
+  "session": {
+    "hit@1": 0.8936170212765957,
+    "recall_all@1": 0.3148936170212766,
+    "ndcg@1": 0.8936170212765957,
+    "hit@3": 0.9638297872340426,
+    "recall_all@3": 0.8042553191489362,
+    "ndcg@3": 0.896001998381548,
+    "hit@5": 0.9808510638297873,
+    "recall_all@5": 0.8680851063829788,
+    "ndcg@5": 0.9086461861383361,
+    "hit@10": 0.9851063829787234,
+    "recall_all@10": 0.9170212765957447,
+    "ndcg@10": 0.9181616839927783,
+    "hit@30": 1,
+    "recall_all@30": 0.9787234042553191,
+    "ndcg@30": 0.9268832855514105,
+    "hit@50": 1,
+    "recall_all@50": 0.9851063829787234,
+    "ndcg@50": 0.9275105567877393
+  },
+  "byType": {
+    "knowledge-update": {
+      "questions": 72,
+      "session": {
+        "hit@1": 0.9722222222222222,
+        "recall_all@1": 0,
+        "ndcg@1": 0.9722222222222222,
+        "hit@3": 1,
+        "recall_all@3": 0.9722222222222222,
+        "ndcg@3": 0.9758591598214292,
+        "hit@5": 1,
+        "recall_all@5": 0.9861111111111112,
+        "ndcg@5": 0.9793313820436514,
+        "hit@10": 1,
+        "recall_all@10": 0.9861111111111112,
+        "ndcg@10": 0.9793313820436514,
+        "hit@30": 1,
+        "recall_all@30": 1,
+        "ndcg@30": 0.9808459951824398,
+        "hit@50": 1,
+        "recall_all@50": 1,
+        "ndcg@50": 0.9808459951824398
+      }
+    },
+    "multi-session": {
+      "questions": 121,
+      "session": {
+        "hit@1": 0.9090909090909091,
+        "recall_all@1": 0,
+        "ndcg@1": 0.9090909090909091,
+        "hit@3": 0.9752066115702479,
+        "recall_all@3": 0.6033057851239669,
+        "ndcg@3": 0.8477023882558813,
+        "hit@5": 0.9834710743801653,
+        "recall_all@5": 0.743801652892562,
+        "ndcg@5": 0.8626047377119653,
+        "hit@10": 0.9917355371900827,
+        "recall_all@10": 0.8677685950413223,
+        "ndcg@10": 0.8883121528454597,
+        "hit@30": 1,
+        "recall_all@30": 0.9504132231404959,
+        "ndcg@30": 0.8979323110969796,
+        "hit@50": 1,
+        "recall_all@50": 0.9504132231404959,
+        "ndcg@50": 0.8979323110969796
+      }
+    },
+    "single-session-assistant": {
+      "questions": 56,
+      "session": {
+        "hit@1": 0.9821428571428571,
+        "recall_all@1": 0.9821428571428571,
+        "ndcg@1": 0.9821428571428571,
+        "hit@3": 1,
+        "recall_all@3": 1,
+        "ndcg@3": 1,
+        "hit@5": 1,
+        "recall_all@5": 1,
+        "ndcg@5": 1,
+        "hit@10": 1,
+        "recall_all@10": 1,
+        "ndcg@10": 1,
+        "hit@30": 1,
+        "recall_all@30": 1,
+        "ndcg@30": 1,
+        "hit@50": 1,
+        "recall_all@50": 1,
+        "ndcg@50": 1
+      }
+    },
+    "single-session-preference": {
+      "questions": 30,
+      "session": {
+        "hit@1": 0.6,
+        "recall_all@1": 0.6,
+        "ndcg@1": 0.6,
+        "hit@3": 0.8333333333333334,
+        "recall_all@3": 0.8333333333333334,
+        "ndcg@3": 0.8087286502380971,
+        "hit@5": 0.8666666666666667,
+        "recall_all@5": 0.8666666666666667,
+        "ndcg@5": 0.8230845355072103,
+        "hit@10": 0.9,
+        "recall_all@10": 0.9,
+        "ndcg@10": 0.835979629081695,
+        "hit@30": 1,
+        "recall_all@30": 1,
+        "ndcg@30": 0.8614580243822872,
+        "hit@50": 1,
+        "recall_all@50": 1,
+        "ndcg@50": 0.8614580243822872
+      }
+    },
+    "single-session-user": {
+      "questions": 64,
+      "session": {
+        "hit@1": 0.953125,
+        "recall_all@1": 0.953125,
+        "ndcg@1": 0.953125,
+        "hit@3": 0.984375,
+        "recall_all@3": 0.984375,
+        "ndcg@3": 0.972841554799108,
+        "hit@5": 1,
+        "recall_all@5": 1,
+        "ndcg@5": 0.9795708760190048,
+        "hit@10": 1,
+        "recall_all@10": 1,
+        "ndcg@10": 0.9795708760190048,
+        "hit@30": 1,
+        "recall_all@30": 1,
+        "ndcg@30": 0.9795708760190048,
+        "hit@50": 1,
+        "recall_all@50": 1,
+        "ndcg@50": 0.9795708760190048
+      }
+    },
+    "temporal-reasoning": {
+      "questions": 127,
+      "session": {
+        "hit@1": 0.8346456692913385,
+        "recall_all@1": 0.11023622047244094,
+        "ndcg@1": 0.8346456692913385,
+        "hit@3": 0.937007874015748,
+        "recall_all@3": 0.7165354330708661,
+        "ndcg@3": 0.8327824546372994,
+        "hit@5": 0.9763779527559056,
+        "recall_all@5": 0.7952755905511811,
+        "ndcg@5": 0.8566267920023195,
+        "hit@10": 0.9763779527559056,
+        "recall_all@10": 0.8503937007874016,
+        "ndcg@10": 0.8643026499015358,
+        "hit@30": 1,
+        "recall_all@30": 0.968503937007874,
+        "ndcg@30": 0.8805365835953364,
+        "hit@50": 1,
+        "recall_all@50": 0.9921259842519685,
+        "ndcg@50": 0.8828579810841121
+      }
+    }
+  },
+  "searchMs": {
+    "p50": 14.2,
+    "p95": 19.7,
+    "mean": 14.007659574468077
+  },
+  "ingestMsMean": 1566.0340425531915,
+  "contextTokensAt5Mean": 16500.070212765957,
+  "matchedMean": 32.47659574468085,
+  "docsMean": 47.7,
+  "skippedWrites": 0,
+  "violations": {}
+}

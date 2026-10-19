@@ -1,0 +1,5 @@
+# Keep documentation and scripts consistent across platforms.
+* text=auto eol=lf
+
+# These files are covered by exact-byte hashes in the publication manifest.
+longmemeval-s/runs/** -text -eol

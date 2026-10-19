@@ -1,0 +1,200 @@
+{
+  "config": {
+    "dataset": "data/longmemeval/longmemeval_s_cleaned.json",
+    "storage": "internal",
+    "granularity": "session",
+    "roles": "all",
+    "concurrency": 4,
+    "commit": "bccef5d+dirty",
+    "startedAt": "2026-10-16T22:14:57.518Z",
+    "selection": "470 of 500 questions (30 abstention left out)",
+    "search": {
+      "referenceTime": true,
+      "fuzzy": false,
+      "semantic": {
+        "model": "gemini-embedding-001",
+        "dimensions": 768
+      }
+    },
+    "datasetSha256": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+    "filters": {
+      "questions": [],
+      "types": []
+    }
+  },
+  "questions": 470,
+  "scored": 470,
+  "errors": [],
+  "retrievalQuestions": 470,
+  "session": {
+    "hit@1": 0.925531914893617,
+    "recall_all@1": 0.32978723404255317,
+    "ndcg@1": 0.925531914893617,
+    "hit@3": 0.9893617021276596,
+    "recall_all@3": 0.8617021276595744,
+    "ndcg@3": 0.9494766387071504,
+    "hit@5": 0.9957446808510638,
+    "recall_all@5": 0.9361702127659575,
+    "ndcg@5": 0.9574471054299758,
+    "hit@10": 0.997872340425532,
+    "recall_all@10": 0.9744680851063829,
+    "ndcg@10": 0.9636891269482141,
+    "hit@30": 1,
+    "recall_all@30": 0.9851063829787234,
+    "ndcg@30": 0.9651409715883,
+    "hit@50": 1,
+    "recall_all@50": 0.9851063829787234,
+    "ndcg@50": 0.9651409715883
+  },
+  "byType": {
+    "knowledge-update": {
+      "questions": 72,
+      "session": {
+        "hit@1": 0.9722222222222222,
+        "recall_all@1": 0,
+        "ndcg@1": 0.9722222222222222,
+        "hit@3": 1,
+        "recall_all@3": 0.9861111111111112,
+        "ndcg@3": 0.9802406164434534,
+        "hit@5": 1,
+        "recall_all@5": 0.9861111111111112,
+        "ndcg@5": 0.9802406164434534,
+        "hit@10": 1,
+        "recall_all@10": 1,
+        "ndcg@10": 0.982927094271471,
+        "hit@30": 1,
+        "recall_all@30": 1,
+        "ndcg@30": 0.982927094271471,
+        "hit@50": 1,
+        "recall_all@50": 1,
+        "ndcg@50": 0.982927094271471
+      }
+    },
+    "multi-session": {
+      "questions": 121,
+      "session": {
+        "hit@1": 0.9421487603305785,
+        "recall_all@1": 0,
+        "ndcg@1": 0.9421487603305785,
+        "hit@3": 0.9917355371900827,
+        "recall_all@3": 0.7107438016528925,
+        "ndcg@3": 0.921395179651204,
+        "hit@5": 1,
+        "recall_all@5": 0.8925619834710744,
+        "ndcg@5": 0.9338363515952048,
+        "hit@10": 1,
+        "recall_all@10": 0.9338842975206612,
+        "ndcg@10": 0.9428161706929339,
+        "hit@30": 1,
+        "recall_all@30": 0.9504132231404959,
+        "ndcg@30": 0.9444502516436291,
+        "hit@50": 1,
+        "recall_all@50": 0.9504132231404959,
+        "ndcg@50": 0.9444502516436291
+      }
+    },
+    "single-session-assistant": {
+      "questions": 56,
+      "session": {
+        "hit@1": 1,
+        "recall_all@1": 1,
+        "ndcg@1": 1,
+        "hit@3": 1,
+        "recall_all@3": 1,
+        "ndcg@3": 1,
+        "hit@5": 1,
+        "recall_all@5": 1,
+        "ndcg@5": 1,
+        "hit@10": 1,
+        "recall_all@10": 1,
+        "ndcg@10": 1,
+        "hit@30": 1,
+        "recall_all@30": 1,
+        "ndcg@30": 1,
+        "hit@50": 1,
+        "recall_all@50": 1,
+        "ndcg@50": 1
+      }
+    },
+    "single-session-preference": {
+      "questions": 30,
+      "session": {
+        "hit@1": 0.8,
+        "recall_all@1": 0.8,
+        "ndcg@1": 0.8,
+        "hit@3": 0.9666666666666667,
+        "recall_all@3": 0.9666666666666667,
+        "ndcg@3": 0.9666666666666667,
+        "hit@5": 0.9666666666666667,
+        "recall_all@5": 0.9666666666666667,
+        "ndcg@5": 0.9666666666666667,
+        "hit@10": 1,
+        "recall_all@10": 1,
+        "ndcg@10": 0.9795617602411514,
+        "hit@30": 1,
+        "recall_all@30": 1,
+        "ndcg@30": 0.9795617602411514,
+        "hit@50": 1,
+        "recall_all@50": 1,
+        "ndcg@50": 0.9795617602411514
+      }
+    },
+    "single-session-user": {
+      "questions": 64,
+      "session": {
+        "hit@1": 0.9375,
+        "recall_all@1": 0.9375,
+        "ndcg@1": 0.9375,
+        "hit@3": 0.984375,
+        "recall_all@3": 0.984375,
+        "ndcg@3": 0.984375,
+        "hit@5": 1,
+        "recall_all@5": 1,
+        "ndcg@5": 0.9911043212198968,
+        "hit@10": 1,
+        "recall_all@10": 1,
+        "ndcg@10": 0.9911043212198968,
+        "hit@30": 1,
+        "recall_all@30": 1,
+        "ndcg@30": 0.9911043212198968,
+        "hit@50": 1,
+        "recall_all@50": 1,
+        "ndcg@50": 0.9911043212198968
+      }
+    },
+    "temporal-reasoning": {
+      "questions": 127,
+      "session": {
+        "hit@1": 0.8740157480314961,
+        "recall_all@1": 0.11811023622047244,
+        "ndcg@1": 0.8740157480314961,
+        "hit@3": 0.984251968503937,
+        "recall_all@3": 0.7874015748031497,
+        "ndcg@3": 0.9148651895325696,
+        "hit@5": 0.9921259842519685,
+        "recall_all@5": 0.8818897637795275,
+        "ndcg@5": 0.9291176383233615,
+        "hit@10": 0.9921259842519685,
+        "recall_all@10": 0.968503937007874,
+        "ndcg@10": 0.9390933295981252,
+        "hit@30": 1,
+        "recall_all@30": 0.9921259842519685,
+        "ndcg@30": 0.9429094176753396,
+        "hit@50": 1,
+        "recall_all@50": 0.9921259842519685,
+        "ndcg@50": 0.9429094176753396
+      }
+    }
+  },
+  "searchMs": {
+    "p50": 28.6,
+    "p95": 62.1,
+    "mean": 31.764255319148955
+  },
+  "ingestMsMean": 1914.4382978723404,
+  "contextTokensAt5Mean": 16359.178723404255,
+  "matchedMean": 32.47659574468085,
+  "docsMean": 47.7,
+  "skippedWrites": 0,
+  "violations": {}
+}

@@ -1,0 +1,98 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-19T19:05:51.584Z",
+  "source": {
+    "commit": "d7cd3e3e5dca0456a67f427d1c6654ec34ea8a8c",
+    "tree": "5492c7ed0df4dab18276efc1996a60ac987f5249",
+    "branch": "codex/longmemeval-embeddinggemma2",
+    "clean": true,
+    "lockfileSha256Lf": "8f5470e284e26801c34f86163c9792490c79b4773922717aa861f66f90c9d0a3"
+  },
+  "checks": {
+    "benchmarkAndDependenciesBuild": "passed",
+    "benchmarkLint": "passed",
+    "longMemEvalTests": {
+      "passed": 73,
+      "skipped": 0
+    },
+    "upstreamDatasetSha256Verified": true,
+    "localEmbeddingSanity": {
+      "dimensions": 768,
+      "finite": true,
+      "l2Normalized": true,
+      "relevantDocumentRanksAboveDistractor": true
+    }
+  },
+  "model": {
+    "repository": "unsloth/embeddinggemma-2-GGUF",
+    "revision": "031f0d4b35536f69ab3509d4893c923264fcf253",
+    "filename": "embeddinggemma-2-Q8_0.gguf",
+    "bytes": 309855520,
+    "sha256": "6f1bd4ac6c5df7444f9cca7ca36cafe6cfa34cd6f49fefb1e0b4be8143aed8bc",
+    "quantization": "Q8_0"
+  },
+  "runtime": {
+    "name": "llama.cpp",
+    "version": "0.7.0-dev b11739 0ce8cd114 CUDA 12.4",
+    "device": "NVIDIA GeForce RTX 4080, 16376 MiB VRAM, driver 610.88",
+    "arguments": [
+      "--embeddings",
+      "--pooling",
+      "mean",
+      "--ctx-size",
+      "8192",
+      "--batch-size",
+      "8192",
+      "--ubatch-size",
+      "8192",
+      "--parallel",
+      "4",
+      "--n-gpu-layers",
+      "99",
+      "--cache-type-k",
+      "bf16",
+      "--cache-type-v",
+      "bf16"
+    ],
+    "downloadArtifacts": [
+      {
+        "name": "cudart-llama-bin-win-cuda-12.4-x64.zip",
+        "bytes": 391443627,
+        "url": "https://github.com/ggml-org/llama.cpp/releases/download/b11739/cudart-llama-bin-win-cuda-12.4-x64.zip",
+        "sha256": "8c79a9b226de4b3cacfd1f83d24f962d0773be79f1e7b75c6af4ded7e32ae1d6"
+      },
+      {
+        "name": "llama-b11739-bin-win-cuda-12.4-x64.zip",
+        "bytes": 267553059,
+        "url": "https://github.com/ggml-org/llama.cpp/releases/download/b11739/llama-b11739-bin-win-cuda-12.4-x64.zip",
+        "sha256": "8b92d285dbd4a1378861a3466996b194a91cd984c2ec1ee9db2d4672cf2c30e1"
+      }
+    ]
+  },
+  "embeddingCache": {
+    "vectorsAtStart": 0,
+    "isolatedFromPilot": true,
+    "modelProcessAlreadyLoaded": true,
+    "coldModelStartMeasured": false
+  },
+  "runs": [
+    {
+      "id": "clean-20261019-lexical",
+      "questions": 470,
+      "scored": 470,
+      "errors": 0,
+      "skippedWrites": 0
+    },
+    {
+      "id": "clean-20261019-embeddinggemma2-q8",
+      "questions": 470,
+      "scored": 470,
+      "errors": 0,
+      "skippedWrites": 0
+    }
+  ],
+  "storage": {
+    "implementation": "private",
+    "execution": "local"
+  }
+}
