@@ -9,7 +9,7 @@ This report is generated from the imported `summary.json`; per-question rankings
 - Storage: private engine implementation; granularity: session; roles: all; concurrency: 4.
 - Selection: 470 of 500 questions (30 abstention left out).
 - Question date supplied as the search reference time; fuzzy matching disabled.
-- No embedding model or generative model used in this retrieval run.
+- No embedding model or generative model used in retrieval.
 
 ## Session retrieval
 

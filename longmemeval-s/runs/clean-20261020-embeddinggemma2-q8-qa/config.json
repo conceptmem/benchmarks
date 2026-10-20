@@ -1,0 +1,93 @@
+{
+  "dataset": "data/longmemeval/longmemeval_s_cleaned.json",
+  "storage": "internal",
+  "granularity": "session",
+  "roles": "all",
+  "concurrency": 4,
+  "commit": "a8e7e7cfebb242b68f0a2baa83754aa2453e7a1d",
+  "environment": {
+    "node": "v24.21.0",
+    "platform": "win32",
+    "architecture": "x64",
+    "cpu": "AMD Ryzen 9 7900X 12-Core Processor",
+    "memoryBytes": 33459961856
+  },
+  "startedAt": "2026-10-20T16:06:50.914Z",
+  "selection": "500 of 500 questions (30 abstention, QA only)",
+  "search": {
+    "referenceTime": true,
+    "fuzzy": false,
+    "semantic": {
+      "model": "embeddinggemma2-q8-a8304450a4843c984798075612dbc80b6654de4912fe142d597b9ff55ce6bbaa",
+      "dimensions": 768,
+      "local": {
+        "baseUrl": "http://127.0.0.1:18088/v1",
+        "model": "embeddinggemma2-q8",
+        "dimensions": 768,
+        "inputFormat": "embeddinggemma-2-search-v1",
+        "artifact": {
+          "repository": "unsloth/embeddinggemma-2-GGUF",
+          "revision": "031f0d4b35536f69ab3509d4893c923264fcf253",
+          "filename": "embeddinggemma-2-Q8_0.gguf",
+          "bytes": 309855520,
+          "sha256": "6f1bd4ac6c5df7444f9cca7ca36cafe6cfa34cd6f49fefb1e0b4be8143aed8bc",
+          "quantization": "Q8_0"
+        },
+        "runtime": {
+          "name": "llama.cpp",
+          "version": "0.7.0-dev b11739 0ce8cd114 CUDA 12.4",
+          "device": "NVIDIA GeForce RTX 4080, 16376 MiB VRAM, driver 610.88",
+          "arguments": [
+            "--embeddings",
+            "--pooling",
+            "mean",
+            "--ctx-size",
+            "8192",
+            "--batch-size",
+            "8192",
+            "--ubatch-size",
+            "8192",
+            "--parallel",
+            "4",
+            "--n-gpu-layers",
+            "99",
+            "--cache-type-k",
+            "bf16",
+            "--cache-type-v",
+            "bf16"
+          ]
+        }
+      },
+      "cache": {
+        "file": "data/longmemeval/embeddings/full-q8-clean-20261020.bin",
+        "vectorsAtStart": 136930
+      },
+      "requests": {
+        "concurrency": 4,
+        "maxTexts": 4,
+        "maxChars": 6000
+      }
+    }
+  },
+  "qa": {
+    "provider": "gemini",
+    "model": "gemini-3.5-flash-lite",
+    "thinking": "low",
+    "context": "retrieved",
+    "k": 5,
+    "transcripts": 3,
+    "maxChars": 120000,
+    "readerVersion": "reader-3-attributed",
+    "judgeVersion": "judge-1",
+    "cache": "data/longmemeval/qa/gemini-gemini-3.5-flash-lite.jsonl",
+    "prices": {
+      "inputPerM": 0.3,
+      "outputPerM": 2.5
+    }
+  },
+  "datasetSha256": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+  "filters": {
+    "questions": [],
+    "types": []
+  }
+}

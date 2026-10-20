@@ -1,4 +1,4 @@
-# LongMemEval-S: Lexical + EmbeddingGemma 2 Q8_0 reranking
+# LongMemEval-S: Lexical + EmbeddingGemma 2 Q8_0 reranking (2026-10-19 engine)
 
 This report is generated from the imported `summary.json`; per-question rankings are in `results.jsonl`.
 

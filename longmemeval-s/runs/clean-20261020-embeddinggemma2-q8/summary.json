@@ -1,0 +1,254 @@
+{
+  "config": {
+    "dataset": "data/longmemeval/longmemeval_s_cleaned.json",
+    "storage": "internal",
+    "granularity": "session",
+    "roles": "all",
+    "concurrency": 4,
+    "commit": "a8e7e7cfebb242b68f0a2baa83754aa2453e7a1d",
+    "environment": {
+      "node": "v24.21.0",
+      "platform": "win32",
+      "architecture": "x64",
+      "cpu": "AMD Ryzen 9 7900X 12-Core Processor",
+      "memoryBytes": 33459961856
+    },
+    "startedAt": "2026-10-20T15:40:16.403Z",
+    "selection": "470 of 500 questions (30 abstention left out)",
+    "search": {
+      "referenceTime": true,
+      "fuzzy": false,
+      "semantic": {
+        "model": "embeddinggemma2-q8-a8304450a4843c984798075612dbc80b6654de4912fe142d597b9ff55ce6bbaa",
+        "dimensions": 768,
+        "local": {
+          "baseUrl": "http://127.0.0.1:18088/v1",
+          "model": "embeddinggemma2-q8",
+          "dimensions": 768,
+          "inputFormat": "embeddinggemma-2-search-v1",
+          "artifact": {
+            "repository": "unsloth/embeddinggemma-2-GGUF",
+            "revision": "031f0d4b35536f69ab3509d4893c923264fcf253",
+            "filename": "embeddinggemma-2-Q8_0.gguf",
+            "bytes": 309855520,
+            "sha256": "6f1bd4ac6c5df7444f9cca7ca36cafe6cfa34cd6f49fefb1e0b4be8143aed8bc",
+            "quantization": "Q8_0"
+          },
+          "runtime": {
+            "name": "llama.cpp",
+            "version": "0.7.0-dev b11739 0ce8cd114 CUDA 12.4",
+            "device": "NVIDIA GeForce RTX 4080, 16376 MiB VRAM, driver 610.88",
+            "arguments": [
+              "--embeddings",
+              "--pooling",
+              "mean",
+              "--ctx-size",
+              "8192",
+              "--batch-size",
+              "8192",
+              "--ubatch-size",
+              "8192",
+              "--parallel",
+              "4",
+              "--n-gpu-layers",
+              "99",
+              "--cache-type-k",
+              "bf16",
+              "--cache-type-v",
+              "bf16"
+            ]
+          }
+        },
+        "cache": {
+          "file": "data/longmemeval/embeddings/full-q8-clean-20261020.bin",
+          "vectorsAtStart": 0
+        },
+        "requests": {
+          "concurrency": 4,
+          "maxTexts": 4,
+          "maxChars": 6000
+        }
+      }
+    },
+    "datasetSha256": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+    "filters": {
+      "questions": [],
+      "types": []
+    }
+  },
+  "questions": 470,
+  "scored": 470,
+  "errors": [],
+  "retrievalQuestions": 470,
+  "session": {
+    "hit@1": 0.9106382978723404,
+    "recall_all@1": 0.32127659574468087,
+    "ndcg@1": 0.9106382978723404,
+    "hit@3": 0.9808510638297873,
+    "recall_all@3": 0.8404255319148937,
+    "ndcg@3": 0.9294948583436673,
+    "hit@5": 0.9893617021276596,
+    "recall_all@5": 0.9191489361702128,
+    "ndcg@5": 0.9403959064971708,
+    "hit@10": 0.997872340425532,
+    "recall_all@10": 0.9553191489361702,
+    "ndcg@10": 0.9469113469828803,
+    "hit@30": 1,
+    "recall_all@30": 0.9829787234042553,
+    "ndcg@30": 0.9502605009449572,
+    "hit@50": 1,
+    "recall_all@50": 0.9829787234042553,
+    "ndcg@50": 0.9502605009449572
+  },
+  "byType": {
+    "knowledge-update": {
+      "questions": 72,
+      "session": {
+        "hit@1": 0.9861111111111112,
+        "recall_all@1": 0,
+        "ndcg@1": 0.9861111111111112,
+        "hit@3": 1,
+        "recall_all@3": 0.9861111111111112,
+        "ndcg@3": 0.9828036042658739,
+        "hit@5": 1,
+        "recall_all@5": 0.9861111111111112,
+        "ndcg@5": 0.9828036042658739,
+        "hit@10": 1,
+        "recall_all@10": 0.9861111111111112,
+        "ndcg@10": 0.9828036042658739,
+        "hit@30": 1,
+        "recall_all@30": 1,
+        "ndcg@30": 0.9845397153769849,
+        "hit@50": 1,
+        "recall_all@50": 1,
+        "ndcg@50": 0.9845397153769849
+      }
+    },
+    "multi-session": {
+      "questions": 121,
+      "session": {
+        "hit@1": 0.9008264462809917,
+        "recall_all@1": 0,
+        "ndcg@1": 0.9008264462809917,
+        "hit@3": 0.9917355371900827,
+        "recall_all@3": 0.6776859504132231,
+        "ndcg@3": 0.8978660622474537,
+        "hit@5": 0.9917355371900827,
+        "recall_all@5": 0.8842975206611571,
+        "ndcg@5": 0.9195165734538759,
+        "hit@10": 1,
+        "recall_all@10": 0.9256198347107438,
+        "ndcg@10": 0.9268553516756055,
+        "hit@30": 1,
+        "recall_all@30": 0.9504132231404959,
+        "ndcg@30": 0.9291663900884348,
+        "hit@50": 1,
+        "recall_all@50": 0.9504132231404959,
+        "ndcg@50": 0.9291663900884348
+      }
+    },
+    "single-session-assistant": {
+      "questions": 56,
+      "session": {
+        "hit@1": 1,
+        "recall_all@1": 1,
+        "ndcg@1": 1,
+        "hit@3": 1,
+        "recall_all@3": 1,
+        "ndcg@3": 1,
+        "hit@5": 1,
+        "recall_all@5": 1,
+        "ndcg@5": 1,
+        "hit@10": 1,
+        "recall_all@10": 1,
+        "ndcg@10": 1,
+        "hit@30": 1,
+        "recall_all@30": 1,
+        "ndcg@30": 1,
+        "hit@50": 1,
+        "recall_all@50": 1,
+        "ndcg@50": 1
+      }
+    },
+    "single-session-preference": {
+      "questions": 30,
+      "session": {
+        "hit@1": 0.8,
+        "recall_all@1": 0.8,
+        "ndcg@1": 0.8,
+        "hit@3": 0.8666666666666667,
+        "recall_all@3": 0.8666666666666667,
+        "ndcg@3": 0.8666666666666667,
+        "hit@5": 0.9666666666666667,
+        "recall_all@5": 0.9666666666666667,
+        "ndcg@5": 0.9166666666666666,
+        "hit@10": 1,
+        "recall_all@10": 1,
+        "ndcg@10": 0.9285402395702674,
+        "hit@30": 1,
+        "recall_all@30": 1,
+        "ndcg@30": 0.9285402395702674,
+        "hit@50": 1,
+        "recall_all@50": 1,
+        "ndcg@50": 0.9285402395702674
+      }
+    },
+    "single-session-user": {
+      "questions": 64,
+      "session": {
+        "hit@1": 0.875,
+        "recall_all@1": 0.875,
+        "ndcg@1": 0.875,
+        "hit@3": 0.984375,
+        "recall_all@3": 0.984375,
+        "ndcg@3": 0.972841554799108,
+        "hit@5": 0.984375,
+        "recall_all@5": 0.984375,
+        "ndcg@5": 0.972841554799108,
+        "hit@10": 1,
+        "recall_all@10": 1,
+        "ndcg@10": 0.9788861299121477,
+        "hit@30": 1,
+        "recall_all@30": 1,
+        "ndcg@30": 0.9788861299121477,
+        "hit@50": 1,
+        "recall_all@50": 1,
+        "ndcg@50": 0.9788861299121477
+      }
+    },
+    "temporal-reasoning": {
+      "questions": 127,
+      "session": {
+        "hit@1": 0.8818897637795275,
+        "recall_all@1": 0.11811023622047244,
+        "ndcg@1": 0.8818897637795275,
+        "hit@3": 0.9763779527559056,
+        "recall_all@3": 0.7637795275590551,
+        "ndcg@3": 0.8913155187031164,
+        "hit@5": 0.984251968503937,
+        "recall_all@5": 0.8346456692913385,
+        "ndcg@5": 0.8992193043422475,
+        "hit@10": 0.9921259842519685,
+        "recall_all@10": 0.9133858267716536,
+        "ndcg@10": 0.9104886340202917,
+        "hit@30": 1,
+        "recall_all@30": 0.984251968503937,
+        "ndcg@30": 0.9196970333448885,
+        "hit@50": 1,
+        "recall_all@50": 0.984251968503937,
+        "ndcg@50": 0.9196970333448885
+      }
+    }
+  },
+  "searchMs": {
+    "p50": 105.4,
+    "p95": 245.3,
+    "mean": 115.18787234042554
+  },
+  "ingestMsMean": 6296.855319148936,
+  "contextTokensAt5Mean": 15938.46010638298,
+  "matchedMean": 30.970212765957445,
+  "docsMean": 47.7,
+  "skippedWrites": 0,
+  "violations": {}
+}

@@ -1,0 +1,42 @@
+{
+  "dataset": "data/longmemeval/longmemeval_s_cleaned.json",
+  "storage": "internal",
+  "granularity": "session",
+  "roles": "all",
+  "concurrency": 4,
+  "commit": "a8e7e7cfebb242b68f0a2baa83754aa2453e7a1d",
+  "environment": {
+    "node": "v24.21.0",
+    "platform": "win32",
+    "architecture": "x64",
+    "cpu": "AMD Ryzen 9 7900X 12-Core Processor",
+    "memoryBytes": 33459961856
+  },
+  "startedAt": "2026-10-20T15:54:38.726Z",
+  "selection": "500 of 500 questions (30 abstention, QA only)",
+  "search": {
+    "referenceTime": true,
+    "fuzzy": false
+  },
+  "qa": {
+    "provider": "gemini",
+    "model": "gemini-3.5-flash-lite",
+    "thinking": "low",
+    "context": "retrieved",
+    "k": 5,
+    "transcripts": 3,
+    "maxChars": 120000,
+    "readerVersion": "reader-3-attributed",
+    "judgeVersion": "judge-1",
+    "cache": "data/longmemeval/qa/gemini-gemini-3.5-flash-lite.jsonl",
+    "prices": {
+      "inputPerM": 0.3,
+      "outputPerM": 2.5
+    }
+  },
+  "datasetSha256": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
+  "filters": {
+    "questions": [],
+    "types": []
+  }
+}

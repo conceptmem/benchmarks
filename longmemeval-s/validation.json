@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "recordedAt": "2026-10-19T19:05:51.584Z",
+  "recordedAt": "2026-10-20T16:20:45.503Z",
   "source": {
-    "commit": "d7cd3e3e5dca0456a67f427d1c6654ec34ea8a8c",
-    "tree": "5492c7ed0df4dab18276efc1996a60ac987f5249",
-    "branch": "codex/longmemeval-embeddinggemma2",
+    "commit": "a8e7e7cfebb242b68f0a2baa83754aa2453e7a1d",
+    "tree": "496ecffbcc97d8d6bff981dcaccbb147e42a4217",
+    "branch": "main",
     "clean": true,
     "lockfileSha256Lf": "8f5470e284e26801c34f86163c9792490c79b4773922717aa861f66f90c9d0a3"
   },
@@ -12,7 +12,7 @@
     "benchmarkAndDependenciesBuild": "passed",
     "benchmarkLint": "passed",
     "longMemEvalTests": {
-      "passed": 73,
+      "passed": 108,
       "skipped": 0
     },
     "upstreamDatasetSha256Verified": true,
@@ -75,18 +75,42 @@
     "modelProcessAlreadyLoaded": true,
     "coldModelStartMeasured": false
   },
+  "answers": {
+    "provider": "gemini",
+    "model": "gemini-3.5-flash-lite",
+    "thinking": "low",
+    "readerVersion": "reader-3-attributed",
+    "judgeVersion": "judge-1",
+    "answerCacheEntriesAtStart": 0,
+    "smokeTest": "two questions, before the answer runs; its cache entries were moved aside",
+    "top5RankingsMatchRetrievalRuns": true
+  },
   "runs": [
     {
-      "id": "clean-20261019-lexical",
+      "id": "clean-20261020-lexical",
       "questions": 470,
       "scored": 470,
       "errors": 0,
       "skippedWrites": 0
     },
     {
-      "id": "clean-20261019-embeddinggemma2-q8",
+      "id": "clean-20261020-embeddinggemma2-q8",
       "questions": 470,
       "scored": 470,
+      "errors": 0,
+      "skippedWrites": 0
+    },
+    {
+      "id": "clean-20261020-lexical-qa",
+      "questions": 500,
+      "scored": 500,
+      "errors": 0,
+      "skippedWrites": 0
+    },
+    {
+      "id": "clean-20261020-embeddinggemma2-q8-qa",
+      "questions": 500,
+      "scored": 500,
       "errors": 0,
       "skippedWrites": 0
     }

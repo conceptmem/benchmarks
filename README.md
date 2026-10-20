@@ -4,8 +4,10 @@ Public benchmark results and evaluation methodology for [ConceptMem](https://con
 a managed ontological database for applications and AI agents.
 
 This repository contains **LongMemEval-S session-retrieval runs**, including a clean-source
-evaluation of the local **EmbeddingGemma 2 Q8_0** model and its lexical control.
-It contains configurations, per-question rankings, summaries and reports.
+evaluation of the local **EmbeddingGemma 2 Q8_0** model and its lexical control, and the
+**answer accuracy** reached from each of those retrievals, read and judged by Gemini 3.5 Flash
+Lite. It contains configurations, per-question rankings, answers and grades, summaries and
+reports.
 The scripts verify those artifacts and acquire the upstream dataset independently of the
 private ConceptMem engine.
 
@@ -20,8 +22,8 @@ questions are excluded from retrieval evaluation, following the
 
 | Method | Questions | hit@1 | hit@5 | recall_all@5 | nDCG@5 | Report |
 | --- | ---: | ---: | ---: | ---: | ---: | --- |
-| Lexical retrieval | 470 | 89.36% | **98.09%** (461/470) | 86.81% | 0.908646 | [Report](longmemeval-s/runs/clean-20261019-lexical/report.md) |
-| Lexical + EmbeddingGemma 2 Q8_0 reranking | 470 | 90.00% | **99.15%** (466/470) | 91.91% | 0.938754 | [Report](longmemeval-s/runs/clean-20261019-embeddinggemma2-q8/report.md) |
+| Lexical retrieval | 470 | 91.06% | **98.51%** (463/470) | 87.66% | 0.918554 | [Report](longmemeval-s/runs/clean-20261020-lexical/report.md) |
+| Lexical + EmbeddingGemma 2 Q8_0 reranking | 470 | 91.06% | **98.94%** (465/470) | 91.91% | 0.940396 | [Report](longmemeval-s/runs/clean-20261020-embeddinggemma2-q8/report.md) |
 
 <!-- results:end -->
 
@@ -31,7 +33,30 @@ that needs several evidence sessions can pass hit@5 without retrieving all of th
 reports also give `recall_all@k` and nDCG.
 
 These are internal ConceptMem evaluations, not an official LongMemEval leaderboard entry or
-a comparison against other products. No generated answers or LLM-judge scores are included.
+a comparison against other products.
+
+## Answer accuracy
+
+Each question, the 30 abstention questions included, is answered from the first five sessions
+the retrieval above ranked, and the answer is graded against the reference answer.
+
+<!-- qa:start -->
+
+| Retrieval | Questions | Accuracy | Task-averaged | Abstention | Reader context | Report |
+| --- | ---: | ---: | ---: | ---: | ---: | --- |
+| Lexical retrieval | 500 | **83.00%** (415/500) | 85.89% | 90.00% (27/30) | ~16,483 tokens | [Report](longmemeval-s/runs/clean-20261020-lexical-qa/report.md) |
+| Lexical + EmbeddingGemma 2 Q8_0 reranking | 500 | **85.40%** (427/500) | 86.54% | 93.33% (28/30) | ~16,105 tokens | [Report](longmemeval-s/runs/clean-20261020-embeddinggemma2-q8-qa/report.md) |
+
+<!-- qa:end -->
+
+**These accuracies are not comparable with LongMemEval's published QA results.** The reader and
+the judge are both Gemini 3.5 Flash Lite under this harness's own prompts, recorded in each
+run's configuration (`reader-3-attributed`, `judge-1`), not LongMemEval's GPT-4o judge. The
+judge's rule depends on the question type: a temporal answer whose count of days, weeks or
+months differs from the reference by one still counts; a knowledge-update answer must give the
+most recent value as current; a preference answer must follow the preferences the reference
+describes; an abstention answer must say the information was not given. Compare the two rows
+with each other: they differ only in retrieval.
 
 ## Methodology
 
@@ -70,13 +95,26 @@ a comparison against other products. No generated answers or LLM-judge scores ar
   parameters; they were not retuned for this model.
   The inference server and model are already loaded before the full run; an empty embedding
   cache does not mean a cold model process.
+- **Answer runs:** each repeats a retrieval run's configuration on all 500 questions and adds a
+  reader and a judge, both `gemini-3.5-flash-lite` (thinking level low). The reader receives
+  the question, its date and the first five ranked sessions (at most 120,000 characters); the
+  judge receives the question,
+  the reference answer and the reader's answer, and returns a grade with its reason. Retrieval
+  in an answer run is scored over the same 470 questions as its retrieval run; the first five
+  sessions, which the reader sees, match the retrieval run on all 470, and deeper ranks differ
+  only where scores tie. Answers and
+  grades are cached by their full input, starting from an empty cache: where the reader's input
+  is identical in both answer runs, the second reuses the first answer. The reranking answer run
+  reuses the embedding vectors its retrieval run left, which changes no ranking.
 - **Scoring:** up to 50 distinct ranked session IDs per question. `hit@k` is 1 when any gold
   session is present; `recall_all@k` is 1 when every gold session is present. nDCG uses binary
   relevance and the upstream discount: rank 1 has weight 1, ranks 2 and onward use
   `1 / log2(rank)`. Metrics are averaged over questions, also grouped by question type.
 
 Per-question data is in `results.jsonl`; aggregate metrics, errors and skipped writes are
-reported in `summary.json`. The publication script refuses incomplete runs or failed questions.
+reported in `summary.json`. Answer runs add each answer in `hypotheses.jsonl` and each grade,
+with the judge's reason, in `results.jsonl` (`qa_correct`, `qa_reason`). The publication script
+refuses incomplete runs or failed questions.
 
 ## Verify the published results
 
@@ -89,7 +127,8 @@ node scripts/verify.mjs
 
 This checks publication checksums, unique question IDs, matching selections across runs,
 every recorded per-question retrieval metric, aggregate and per-type metrics, and timing
-summaries. It recomputes scores from the published rankings and gold IDs.
+summaries. It recomputes scores from the published rankings and gold IDs, and answer accuracy
+(overall, per type, task-averaged and on abstention) from the published grades.
 
 To additionally check questions, gold evidence IDs and ranked-session membership against
 the exact upstream release, obtain the dataset and run:
@@ -112,15 +151,26 @@ The expected upstream metadata and checksum are recorded in
 
 ## Provenance and reproduction limits
 
-The two clean runs use the same full Git commit ID and an isolated source checkout with no
-uncommitted changes. The harness refuses to start a clean run from a dirty checkout. The
-Q8 model and runtime are pinned; cache-at-start and host details are recorded. A 12-question
-integration pilot preceded the full evaluation; it used a separate cache. No retrieval
-hyperparameters were selected from that pilot's scores. The artifacts do not establish a
-separate held-out tuning split for the existing retrieval implementation. In particular,
-the recorded engine source documents that its existing semantic weight of 0.85 was selected
-in an earlier 120-question LongMemEval pilot. Treat these as development benchmark results;
-the clean checkout and empty cache establish execution provenance, not a held-out evaluation.
+The four clean runs (two retrieval runs and their two answer runs) use the same full Git commit
+ID and an isolated source checkout with no uncommitted changes. The harness refuses to start a
+clean run from a dirty checkout. The Q8 model and runtime are pinned; cache-at-start and host
+details are recorded. A two-question answer smoke test preceded the answer runs; its answers
+were moved out of the cache before they started.
+
+**These are development results, not a held-out evaluation.** The engine under test was tuned
+on this benchmark. Its query term weights (framing words such as "mentioned" or "days" at 0.5,
+capitalised names at 1.5) and the 0.1 time-window factor of embedding reranking were chosen on
+these same 470 questions; a split-half check moved both halves alike for the weights, which is
+not a held-out split. The semantic weight of 0.85 was selected in an earlier 120-question
+LongMemEval pilot. The clean checkout and empty cache establish execution provenance, not
+generalisation.
+
+The October 19 clean runs are kept as historical: they record an earlier engine, `d7cd3e3`.
+The October 20 engine reads a query in its own language's function words, weights terms as
+above, adds verb and noun forms through per-language inflection tables, and no longer loses the
+first word of each line of a stored text. Against October 19, lexical hit@1 rose from 89.36%
+and hit@5 from 98.09%; with EmbeddingGemma reranking, hit@1 rose from 90.00% and hit@5 fell by
+one question, from 466 to 465 of 470.
 
 [Validation metadata](longmemeval-s/validation.json) records the clean source tree, dependency
 lockfile checksum, runtime download checksums and benchmark checks. Storage implementation
@@ -165,8 +215,12 @@ longmemeval-s/
   dataset.json       # Pinned upstream dataset metadata
   manifest.json      # Import provenance and file checksums
   runs/
-    clean-20261019-lexical/
-    clean-20261019-embeddinggemma2-q8/
+    clean-20261020-lexical/
+    clean-20261020-embeddinggemma2-q8/
+    clean-20261020-lexical-qa/              # Answers and grades from lexical retrieval
+    clean-20261020-embeddinggemma2-q8-qa/   # Answers and grades from reranking
+    clean-20261019-lexical/                 # Historical, earlier engine
+    clean-20261019-embeddinggemma2-q8/      # Historical, earlier engine
     final-lexical/                          # Historical, dirty source
     final-semantic/                         # Historical Gemini run
 scripts/

@@ -1,12 +1,12 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "benchmark": "LongMemEval-S",
-  "preparedAt": "2026-10-19T19:29:48.170Z",
+  "preparedAt": "2026-10-20T16:22:16.463Z",
   "datasetSha256": "d6f21ea9d60a0d56f34a05b609c79c88a451d2ae03597821ea3d5a9678c3a442",
   "validationFile": {
     "path": "longmemeval-s/validation.json",
-    "bytes": 2738,
-    "sha256": "a3a4e1c85f282401ba898fd07edda4ba5f0bcc93a262cbc2bd4e95416b04a7de"
+    "bytes": 3362,
+    "sha256": "b6984fc921b25b8112d882ec0a1c2f22373bee3d548a23c1f2dee7e4bf312f05"
   },
   "sourceDirectory": "packages/benchmark/longmemeval-results",
   "transformations": [
@@ -15,7 +15,9 @@
     "Storage implementation details are omitted; internal denotes private engine storage, not a vendor or a hosted deployment.",
     "CPU descriptions are trimmed; public run identifiers omit implementation details.",
     "report.md: regenerated from the imported summary with methodology and timing qualifications.",
-    "results.jsonl: copied byte-for-byte from the source run."
+    "results.jsonl: copied byte-for-byte from the source run.",
+    "hypotheses.jsonl (QA runs): copied byte-for-byte from the source run.",
+    "QA answer cache paths are normalized to a repository-relative path."
   ],
   "runs": [
     {
@@ -44,8 +46,8 @@
           "sha256": "26105e27b36ad688093a71baf774ba903f696cd98a6fc93b14a1a58b837cba40"
         },
         "report.md": {
-          "bytes": 2606,
-          "sha256": "8209e33e8cde2db0b6fdc7b8fb8a0abef934bbea9137743119a3168d02a4c286"
+          "bytes": 2597,
+          "sha256": "3977dc522afbca6e1ba8bf2b9b96bfce80bf7057a5c18289a36b8b4ba742010a"
         }
       }
     },
@@ -82,9 +84,9 @@
     },
     {
       "id": "clean-20261019-lexical",
-      "label": "Lexical retrieval",
+      "label": "Lexical retrieval (2026-10-19 engine)",
       "mode": "lexical",
-      "status": "clean",
+      "status": "historical",
       "directory": "longmemeval-s/runs/clean-20261019-lexical",
       "sourceSha256": {
         "config.json": "6ac5db581a5f649cec22e7d5543dc448634dedf0c38791bbf5b523551281bb15",
@@ -106,16 +108,16 @@
           "sha256": "65f806d3c1fbb1e2f13ebed926a869200d46124371389d5bd6e4534e168848a8"
         },
         "report.md": {
-          "bytes": 2757,
-          "sha256": "07a6d888bbbe93327bf4eb037293466496b78a31f9e94346770f3c27b85ed8ce"
+          "bytes": 2768,
+          "sha256": "bee14e94c535eb16ada04e90626ec671248a2f2b85fc19804e03c053a52b46ac"
         }
       }
     },
     {
       "id": "clean-20261019-embeddinggemma2-q8",
-      "label": "Lexical + EmbeddingGemma 2 Q8_0 reranking",
+      "label": "Lexical + EmbeddingGemma 2 Q8_0 reranking (2026-10-19 engine)",
       "mode": "reranking",
-      "status": "clean",
+      "status": "historical",
       "directory": "longmemeval-s/runs/clean-20261019-embeddinggemma2-q8",
       "sourceSha256": {
         "config.json": "99a02a6b2cd19d108b7b1fa298490542f3078eaf6da514c01294494a7d9f8fb3",
@@ -137,8 +139,144 @@
           "sha256": "ec812edff5460f401f2f4d414b8545e81e62e0c36b8fa665002514f9170e5ff1"
         },
         "report.md": {
-          "bytes": 4198,
-          "sha256": "486755c0bd4d49510e4a712acf51a16a785e300c53d732ebc2572f8844c1c8f9"
+          "bytes": 4218,
+          "sha256": "90906febe19d4123bb0e83064ff6d75a913372bae1b3e0c3c49b884d638fc80c"
+        }
+      }
+    },
+    {
+      "id": "clean-20261020-lexical",
+      "label": "Lexical retrieval",
+      "mode": "lexical",
+      "status": "clean",
+      "directory": "longmemeval-s/runs/clean-20261020-lexical",
+      "sourceSha256": {
+        "config.json": "e1530baad6d57959ab0d0bb3569def88b9854062290148a22aba7ed1b219f53e",
+        "summary.json": "c4ead2cdfa04ec542d4c480ea7ffd0bab62385114d5f40ba8c154d509b3ec0bc",
+        "results.jsonl": "12378146bf9223bb0bcf80aa0ed997f2f024f125c1753bc7142c947747c370ae",
+        "report.md": "a6dc32054a02291ebe64d6368bc1e13668e09c200c869841864f1937bdbe7be8"
+      },
+      "files": {
+        "config.json": {
+          "bytes": 707,
+          "sha256": "64e168d887c72a44b150e1fbaae45f35b8ce89d100dd1bbdd2c94632f77c32e3"
+        },
+        "summary.json": {
+          "bytes": 5727,
+          "sha256": "7e20fd2afad1b30bc0190f2b95af211483fed15613869d28a22108e4570ef8af"
+        },
+        "results.jsonl": {
+          "bytes": 537091,
+          "sha256": "12378146bf9223bb0bcf80aa0ed997f2f024f125c1753bc7142c947747c370ae"
+        },
+        "report.md": {
+          "bytes": 2749,
+          "sha256": "df12d149dfb4dad393c4dffe475d92ec984b23b8e2b22fa453625c863fffc4ef"
+        }
+      }
+    },
+    {
+      "id": "clean-20261020-embeddinggemma2-q8",
+      "label": "Lexical + EmbeddingGemma 2 Q8_0 reranking",
+      "mode": "reranking",
+      "status": "clean",
+      "directory": "longmemeval-s/runs/clean-20261020-embeddinggemma2-q8",
+      "sourceSha256": {
+        "config.json": "d0c68622cf10271b3b238f0a07aad50905caa28240c57b994b4fa415c4b2e4d2",
+        "summary.json": "75c92a0065fed379cf8551d3dd157a53894e05ba638bce68fc73b9d98768037b",
+        "results.jsonl": "7c7cfad12f5fa92d6de406a8e44318604b784596359a87ad349d72e831494ba2",
+        "report.md": "841eb9f7b2ac557d50429a0ea8c72844c9c828429fbd7caf42e75f17da975097"
+      },
+      "files": {
+        "config.json": {
+          "bytes": 2285,
+          "sha256": "a454da1fad3e2bd4c7ae01033593af47232b45ce0a04eb3e5ed03cca835566bf"
+        },
+        "summary.json": {
+          "bytes": 7433,
+          "sha256": "e129308beaa6a372deb171ca2c9d643ecbc6435c645b1554c02642792c110521"
+        },
+        "results.jsonl": {
+          "bytes": 536483,
+          "sha256": "7c7cfad12f5fa92d6de406a8e44318604b784596359a87ad349d72e831494ba2"
+        },
+        "report.md": {
+          "bytes": 4196,
+          "sha256": "8c279b7b92a3668f5b69da3022a57f9897a5fce4cca24cd206c6f73afa8fe791"
+        }
+      }
+    },
+    {
+      "id": "clean-20261020-lexical-qa",
+      "label": "Answers from lexical retrieval",
+      "mode": "qa",
+      "retrieval": "lexical",
+      "status": "clean",
+      "directory": "longmemeval-s/runs/clean-20261020-lexical-qa",
+      "sourceSha256": {
+        "config.json": "225727be577c328b550e6fb0013aa0bad5789cfcb9ccd2b62380c19ce5337442",
+        "summary.json": "1ab7a5de218de40052cdb0b39a7c4ffde506358b8b6f86de0aa19ac9b969e2b4",
+        "results.jsonl": "d38e6f091c59228db0bf76777fb5df60337822a8a22dd0916059d8e2921fd7b3",
+        "report.md": "2530e33204ac6478efd7920c083027b08f98868014cf38230a233624004c2bf7",
+        "hypotheses.jsonl": "e62f4a4457e9d59d8bc094761aec17681ccaa3e184d2e2fbe4cbd8d39ac90107"
+      },
+      "files": {
+        "config.json": {
+          "bytes": 1111,
+          "sha256": "55892fab4c592af64400038e53504a1aeadd58598ed5ae2b73c523ba9251f563"
+        },
+        "summary.json": {
+          "bytes": 7355,
+          "sha256": "6f705d10566ced910fe2c2fbfe3e30b8a9aa529567b1a93549b7f26c2d5c3fbb"
+        },
+        "results.jsonl": {
+          "bytes": 801345,
+          "sha256": "d38e6f091c59228db0bf76777fb5df60337822a8a22dd0916059d8e2921fd7b3"
+        },
+        "report.md": {
+          "bytes": 4116,
+          "sha256": "3b0014a2fb324c51f09e682895a7ec9a157ca19995d05caf38d8fb41a9ef8535"
+        },
+        "hypotheses.jsonl": {
+          "bytes": 110591,
+          "sha256": "e62f4a4457e9d59d8bc094761aec17681ccaa3e184d2e2fbe4cbd8d39ac90107"
+        }
+      }
+    },
+    {
+      "id": "clean-20261020-embeddinggemma2-q8-qa",
+      "label": "Answers from lexical + EmbeddingGemma 2 Q8_0 reranking",
+      "mode": "qa",
+      "retrieval": "reranking",
+      "status": "clean",
+      "directory": "longmemeval-s/runs/clean-20261020-embeddinggemma2-q8-qa",
+      "sourceSha256": {
+        "config.json": "2ce21f26ca328906fba5bc7be44f322b29989773b12c37351f7f1d57726ba2b9",
+        "summary.json": "3bcec5d179a56b8143834e6e8b92da2c009354de4320e39d9ffc24767dbdb61f",
+        "results.jsonl": "c2ff6ee9900bf1b56d6ce78194368fd9c2ff5135e6756cbaf5805e49efb2cad1",
+        "report.md": "ec82b03208f5d82cd881fa043d64c41da1f2e2ba61f4cf25b129a29ddd133c5b",
+        "hypotheses.jsonl": "8ec07bfe74e9c9fc0d315bb9e22f3a33532becb2449e44091bb6082e39699026"
+      },
+      "files": {
+        "config.json": {
+          "bytes": 2694,
+          "sha256": "2c3957fe2cc0adcb4f53714fd68b5425f8e4ce2beffd0493966e639883a40b86"
+        },
+        "summary.json": {
+          "bytes": 9060,
+          "sha256": "2cf24d7070632c3c6e5b4edc8824722952de2d639c2449c5d82bb22221ebb8d2"
+        },
+        "results.jsonl": {
+          "bytes": 791830,
+          "sha256": "c2ff6ee9900bf1b56d6ce78194368fd9c2ff5135e6756cbaf5805e49efb2cad1"
+        },
+        "report.md": {
+          "bytes": 5567,
+          "sha256": "2b94c928e0d3e6cd4dc17b0b5a827fce87a563181f1c86a0f28037f789b7dd29"
+        },
+        "hypotheses.jsonl": {
+          "bytes": 109899,
+          "sha256": "8ec07bfe74e9c9fc0d315bb9e22f3a33532becb2449e44091bb6082e39699026"
         }
       }
     }
